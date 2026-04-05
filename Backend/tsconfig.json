@@ -13,7 +13,8 @@
     "moduleDetection": "force",
     "allowJs": true,
     "allowImportingTsExtensions": true,
-    "noEmit": true
+    "noEmit": true,
+    "outDir": "dist"
   },
   "include": [
     "**/*"

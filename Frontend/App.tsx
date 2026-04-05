@@ -18,7 +18,7 @@ import {
 import { motion, AnimatePresence } from "motion/react";
 import { Role, UserStatus, TransactionType, User, FinancialRecord } from "./types";
 
-const API_BASE = "/api";
+const API_BASE = import.meta.env.VITE_API_URL;
 
 export default function App() {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
