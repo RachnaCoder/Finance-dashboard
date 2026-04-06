@@ -15,9 +15,7 @@ async function startServer() {
   const app = express();
   const PORT = process.env.PORT || 3000;
 
-  app.use(cors({
-    origin:process.env.APP_URL
-  }));
+  app.use(cors());
   
   app.use(morgan("dev"));
   app.use(express.json());
