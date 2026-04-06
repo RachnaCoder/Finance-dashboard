@@ -117,7 +117,7 @@ export default function App() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${API_BASE}/auth/register`, {
+      const res = await fetch(`${API_BASE}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(authData)
@@ -147,7 +147,7 @@ export default function App() {
 
   const fetchUsers = async () => {
     try {
-      const res = await fetch(`${API_BASE}/users`, {
+      const res = await fetch(`${API_BASE}/api/users`, {
         headers: { "x-user-id": localStorage.getItem("token") || "" }
       });
       const data = await res.json();
@@ -162,7 +162,7 @@ export default function App() {
   const handleUpdateUser = async (userId: string, updates: Partial<User>) => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/users/${userId}`, {
+      const res = await fetch(`${API_BASE}/api/users/${userId}`, {
         method: "PUT",
         headers: { 
           "Content-Type": "application/json",
@@ -188,7 +188,7 @@ export default function App() {
   const fetchDashboardData = async () => {
     if (!currentUser) return;
     try {
-      const res = await fetch(`${API_BASE}/dashboard/summary`, {
+      const res = await fetch(`${API_BASE}/api/dashboard/summary`, {
         headers: { "x-user-id": localStorage.getItem("token") || "" }
       });
       const data = await res.json();
@@ -205,7 +205,7 @@ export default function App() {
   const fetchRecords = async () => {
     if (!currentUser) return;
     try {
-      const res = await fetch(`${API_BASE}/records`, {
+      const res = await fetch(`${API_BASE}/api/records`, {
         headers: { "x-user-id": localStorage.getItem("token") || "" }
       });
       const data = await res.json();
@@ -250,7 +250,7 @@ export default function App() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/records`, {
+      const res = await fetch(`${API_BASE}/api/records`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -296,7 +296,7 @@ export default function App() {
 
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE}/records/${editingRecord.id}`, {
+      const res = await fetch(`${API_BASE}/api/records/${editingRecord.id}`, {
         method: "PUT",
         headers: { 
           "Content-Type": "application/json",
@@ -323,7 +323,7 @@ export default function App() {
     if (!currentUser || !recordToDelete) return;
     
     try {
-      const res = await fetch(`${API_BASE}/records/${recordToDelete}`, {
+      const res = await fetch(`${API_BASE}/api/records/${recordToDelete}`, {
         method: "DELETE",
         headers: { "x-user-id": localStorage.getItem("token") || "" }
       });
